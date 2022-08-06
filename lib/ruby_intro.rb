@@ -3,21 +3,40 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+
+  arr.sum
+
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+
+  arr.max(2).sum
+
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  
+  len_arr = arr.length()
+
+  if len_arr < 2 
+    return false
+  else
+    arr.find {|e| 
+      if arr.include?(n-e) 
+        return false if (arr.count(e) < 2) && (e == n-e)
+        return true
+      elsif arr.find_index(e) == len_arr-1
+        return false
+      end  
+    }
+  end
+
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
