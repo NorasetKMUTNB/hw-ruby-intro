@@ -41,14 +41,47 @@ end
 
 def starts_with_consonant? s
   # YOUR CODE HERE
+  
+  if /^[^aeiou\W]/i.match(s) == nil
+    return false
+  else
+    return true
+  end
+
 end
 
 def binary_multiple_of_4? s
   # YOUR CODE HERE
+  if /^(?:[10]*00|00?)$/.match(s) != nil
+    return true
+  else 
+    return false 
+  end
 end
 
-# Part 3
 
+# Part 3
 class BookInStock
-# YOUR CODE HERE
+  # YOUR CODE HERE
+  attr_accessor :isbn
+  attr_accessor :price
+
+  def initialize(isbn, price)
+    if isbn.empty?
+      raise ArgumentError
+    else 
+      @isbn = isbn 
+    end
+    
+    if price > 0
+      @price = Float(price)
+    else 
+      raise ArgumentError
+    end
+  end
+
+  def price_as_string
+    "$#{'%.2f' % @price}"
+  end
+
 end
